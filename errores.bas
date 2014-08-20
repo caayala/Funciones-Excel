@@ -1,21 +1,10 @@
 Option Explicit
 
-Function interconfianza(prom As Single, DesStd As Single, casos As Single, _
-    Optional sup As Boolean = True, Optional signif As Double = 95) As Double
-    'C‡lculo de intervalos de confianza a partir de promedios.
-
-If sup = True Then
-    interconfianza = prom + WorksheetFunction.TInv(1 - signif / 100, casos - 1) * DesStd / (casos) ^ (1 / 2)
-Else
-    interconfianza = prom - WorksheetFunction.TInv(1 - signif / 100, casos - 1) * DesStd / (casos) ^ (1 / 2)
-End If
-
-End Function
-
-
 Function errormuestralinf(muestra As Long, Optional signif As Double = 95, _
     Optional p As Double = 0.5) As Single
+
 ' Formula de error muestral si la poblacion es infinita
+' Supone muestreo aleatorio simple
 
 If signif > 1 Then
     signif = signif / 100
@@ -29,7 +18,10 @@ End Function
 
 Function errormuestralfin(muestra As Long, pobTot As Long, Optional signif As Double = 95, _
     Optional p As Double = 0.5) As Double
-' Formula de error muestral si la poblaci—n es finita
+
+' Formula de error muestral si la poblacion es finita
+' Supone muestreo aleatorio simple
+
 If signif > 1 Then
     signif = signif / 100
 End If
@@ -43,7 +35,9 @@ End Function
 
 Function tamuestra(error As Double, pobTot As Long, Optional signif As Double = 95, _
     Optional p As Double = 0.5) As Double
-' F—rmula de tama–o de muestra.
+
+' Formula para calcular el tamano de una muestra dado un error muestral.
+' Supone muestreo aleatorio simple
 
 Dim pobinf As Double
 
