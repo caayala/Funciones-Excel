@@ -63,18 +63,21 @@ Done:
 '    MsgBox Msg
 End Function
 
-Function cuadratoRango(pregunta As String, alternativa As Range, _
-    segmento As String, rgMat As String, Optional posicion As Integer = 0, _
+Function cuadratoRango( _ 
+    fil1 As String, fil2_range As Range, _
+    col1 As String, _ 
+    rgMat As String, Optional posicion As Integer = 0, _
     Optional error As Boolean = False) As Variant
 
-' suma los valores asignados al rango de alternativas ingresadas.
+' suma los valores de la preguta (fil1) asignados 
+' al rango de alternativas ingresadas (fil2_range) para el segmento (col1)
 ' necesita de funcion cuadrato para funcionar
 
-Dim c As Range
+Dim fil1 As Range
 
-For Each c In alternativa.Cells
-    If IsEmpty(c) = False Then
-        cuadratoRango = cuadrato(pregunta, c, segmento, rgMat, posicion, error) + cuadratoRango
+For Each fil1 In fil1_range.Cells
+    If IsEmpty(fil1) = False Then
+        cuadratoRango = cuadrato(fil1, fil2, col1, rgMat, posicion, error) + cuadratoRango
     End If
 Next
 
@@ -152,5 +155,25 @@ Done:
     Application.Calculation = xlCalculationAutomatic
     Application.ScreenUpdating = True
     ' Application.EnableEvents = True
+
+End Function
+
+Function cuadrato2Rango( _ 
+    fil1 As String, fil2_range As Range, _
+    col1 As String, col2 As String, _ 
+    rgMat As String, _ 
+    Optional posicion As Integer = 0, _ 
+    Optional error As Boolean = False) As Variant
+
+' suma los valores asignados al rango de alternativas ingresadas.
+' necesita de funcion cuadrato2 para funcionar
+
+Dim fil2 As Range
+
+For Each fil2 In fil2_range.Cells
+    If IsEmpty(fil2) = False Then
+        cuadrato2Rango = cuadrato2(fil1, fil2, col1, col2, rgMat, posicion, error) + cuadrato2Rango
+    End If
+Next
 
 End Function
