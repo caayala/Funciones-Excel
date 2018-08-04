@@ -1,8 +1,8 @@
 Option Explicit
 
 Function errormuestralinf(muestra As Long, _ 
-                          Optional signif As Double = 95, _ 
-                          Optional p As Double = 0.5) As Single
+                          Optional p As Single = 0.5, _ 
+                          Optional signif As Single = 95) As Single
 
 ' Formula de error muestral si la poblacion es infinita
 ' Supone muestreo aleatorio simple
@@ -19,8 +19,8 @@ End Function
 
 Function errormuestralfin(muestra As Long, _ 
                           pobTot As Long, _ 
-                          Optional signif As Double = 95, _
-                          Optional p As Double = 0.5) As Double
+                          Optional p As Single = 0.5, _ 
+                          Optional signif As Single = 95) As Single
 
 ' Formula de error muestral si la poblacion es finita
 ' Supone muestreo aleatorio simple
@@ -36,10 +36,10 @@ End If
 End Function
 
 
-Function tamuestra(error As Double, 
+Function tamuestra(error As Double, _ 
                    pobTot As Long, _ 
-                   Optional signif As Double = 95, _
-                   Optional p As Double = 0.5) As Double
+                   Optional p As Single = 0.5, _ 
+                   Optional signif As Single = 95) As Single
 
 ' Formula para calcular el tamano de una muestra dado un error muestral.
 ' Supone muestreo aleatorio simple
@@ -57,10 +57,10 @@ tamuestra = WorksheetFunction.RoundUp(pobinf / (1 + (pobinf - 1) / pobTot), 0)
 End Function
 
 
-Function errormuestral_dist(muestra As Range, _
-                            pob As Range, _
-                            Optional signif As Double = 95, _
-                            Optional p As Double = 0.5)
+Function errormuestral_dist(muestra As Range, _ 
+                            pob As Range, _ 
+                            Optional p As Single = 0.5, _ 
+                            Optional signif As Single = 95) As Single
 
 ' Funcion para calculo de error muestral considerando la distribucion de estratos
 
