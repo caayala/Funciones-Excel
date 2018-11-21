@@ -22,7 +22,7 @@ Archivo: **`errores.bas`** contiene las siguientes funciones:
     * `signif`: nivel de confianza. Por defecto `signif = 0.95`.
     * `p`: varianza. Por defecto `p = 0.5`.
 
-- `tamuestra`: Calcula el tamaño de muestra necesario para un error muestral.
+- `tamuestra`: Calcula el tamaño muestral necesario para un error muestral dado.
 
 	Sus variables son:
 
